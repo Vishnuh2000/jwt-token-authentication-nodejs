@@ -1,0 +1,36 @@
+<app-header></app-header>
+<h2 class="display-4 text-center mt-4">User List</h2>
+<div class="container">
+
+    <table class="table table-striped">
+      <thead>
+        <tr class="text-center">
+          <th>No</th>
+          <th>FullName</th>
+          <th>Username</th>
+          <th>Phone Number</th>
+          <th>Email</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+      <tr class="text-center" *ngFor="let item of user , let i=index">
+          <td>{{i+1}}</td>
+          <td scope="row">{{item.name}}</td>
+          <td>{{item.username}}</td>
+          <td>{{item.phoneNumber}}</td>
+          <td>{{item.email}}</td>
+          <td>
+
+             <button (click)="edit(item.id)" class="btn btn-primary badge">Edit</button>
+             <button (click)="deleteItem(item.id)" class="btn btn-danger badge" >Delete</button>
+
+          </td>
+        </tr>
+
+      </tbody>
+    </table>
+
+</div>
+
+

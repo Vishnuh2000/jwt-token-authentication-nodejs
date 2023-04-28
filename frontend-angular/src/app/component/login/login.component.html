@@ -1,0 +1,52 @@
+
+
+<app-header></app-header>
+
+<div class="container">
+
+  <div class="row justify-content-center">
+    <div class="col-sm-8 col-md-5">
+      <div class="display-4 text-center mb-3 mt-4">Login</div>
+      <div class="card">
+
+        <div class="card-body">
+          <form action="" method="post" [formGroup]="loginForm" (ngSubmit)="loginSubmit()">
+
+            <div class="form-group">
+
+              <label for="" class="form-label">Email</label>
+              <input type="email" class="form-control" placeholder="Enter your email address" formControlName="email" [ngClass]="{'is-invalid':submit && f.email.errors}">
+
+              <div *ngIf="submit && f.email.errors" class="invalid-feedback font-weight-bold">
+                <div *ngIf="f.email.errors['required']">Email is required</div>
+              </div>
+
+            </div>
+
+            <div class="form-group">
+
+              <label for="" class="form-label">Password</label>
+              <input type="password" class="form-control" placeholder="Enter password" formControlName="password"  [ngClass]="{'is-invalid':submit && f.password.errors}">
+              <div *ngIf="submit && f.password.errors" class="invalid-feedback font-weight-bold">
+                <div *ngIf="f.password.errors['required']">Password is required</div>
+              </div>
+            </div>
+
+                <div *ngIf="showErrorMessage">
+                   <div class="alert alert-danger">
+                      <p class="text-center">Invalid Username Or Password</p>
+                   </div>
+                </div>
+
+            <div class="form-group">
+
+              <button type="submit" class="btn btn-success">Login</button>
+
+            </div>
+
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

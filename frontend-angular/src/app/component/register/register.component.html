@@ -1,0 +1,78 @@
+<app-header></app-header>
+
+<div class="container">
+
+  <div class="row justify-content-center">
+    <div class="col-sm-8 col-md-5">
+      <div class="display-4 text-center mb-3 mt-4">Registration</div>
+      <div class="card">
+
+        <div class="card-body">
+          <form action="" method="post" [formGroup]="regForm" (ngSubmit)="onSubmit()">
+
+            <div class="form-group">
+
+              <label for="" class="form-label">Full Name</label>
+              <input type="text" class="form-control" placeholder="Enter your full name" formControlName="name" [ngClass]="{'is-invalid':submit && f.name.errors}">
+
+               <div *ngIf="submit && f.name.errors" class="invalid-feedback font-weight-bold">
+                 <div *ngIf="f.name.errors['required']">Name is required</div>
+               </div>
+
+            </div>
+
+            <div class="form-group">
+
+              <label for="" class="form-label">Username</label>
+              <input type="text" class="form-control" placeholder="create username" formControlName="username" [ngClass]="{'is-invalid':submit && f.username.errors}">
+              <div *ngIf="submit && f.username.errors" class="invalid-feedback font-weight-bold">
+                <div *ngIf="f.username.errors['required']">Username is required</div>
+              </div>
+            </div>
+
+            <div class="form-group">
+
+              <label for="" class="form-label">Phone number</label>
+              <input type="tel" class="form-control" placeholder="Enter your phone number" formControlName="phoneNumber" [ngClass]="{'is-invalid':submit && f.phoneNumber.errors}">
+              <div *ngIf="submit && f.phoneNumber.errors" class="invalid-feedback font-weight-bold">
+                <div *ngIf="f.phoneNumber.errors['required']">Phone number is required</div>
+                <div *ngIf="f.phoneNumber.errors['pattern']">Enter valid phone number</div>
+              </div>
+            </div>
+
+            <div class="form-group">
+
+              <label for="" class="form-label">Email</label>
+              <input type="email" class="form-control" placeholder="Enter your email address" formControlName="email" [ngClass]="{'is-invalid':submit && f.email.errors}">
+              <div *ngIf="submit && f.email.errors" class="invalid-feedback font-weight-bold">
+                <div *ngIf="f.email.errors['required']">Email is required</div>
+                <div *ngIf="f.email.errors['email']">Enter valid Email address</div>
+              </div>
+
+              <!-- <div  class="invalid-feedback font-weight-bold">
+                <div>User with this email address is already exits</div>
+              </div> -->
+            </div>
+
+            <div class="form-group">
+
+              <label for="" class="form-label">Password</label>
+              <input type="password" class="form-control" placeholder="Enter password" formControlName="password" [ngClass]="{'is-invalid':submit && f.password.errors}">
+              <div *ngIf="submit && f.password.errors" class="invalid-feedback font-weight-bold">
+                <div *ngIf="f.password.errors['required']">Password is required</div>
+                <div *ngIf="f.password.errors['min']">Enter atleast 8 charactor</div>
+              </div>
+            </div>
+
+            <div class="form-group">
+
+              <button type="submit" class="btn btn-primary">Regitser</button>
+
+            </div>
+
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
